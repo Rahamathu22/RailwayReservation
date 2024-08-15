@@ -7,7 +7,7 @@ public class TicketBooking {
         this.source=source;
         this.destination=destination;
         this.seats=seats;
-        this.ticketSystem=ticketSystem;
+        this.ticketSystem=TicketSystem.getInstance();
     }
 
     private void bookTicket(){

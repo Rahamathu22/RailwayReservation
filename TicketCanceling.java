@@ -2,10 +2,10 @@ public class TicketCanceling {
     private int pnr;
     private int seats;
     private TicketSystem ticketSystem;
-    TicketCanceling(int pnr,int seats,TicketSystem ticketSystem){
+    TicketCanceling(int pnr,int seats){
         this.pnr=pnr;
         this.seats=seats;
-        this.ticketSystem=ticketSystem;
+        this.ticketSystem=TicketSystem.getInstance();
     }
 
     private void cancelTicket(){
@@ -23,8 +23,8 @@ public class TicketCanceling {
                 System.out.println("Cancelled Ticket pnr:"+pnr);
             }
             ticketSystem.increaseSeatAvailability(source, destination, seats);
-            WaitingListManager waitingListManager=new WaitingListManager();
-            waitingListManager.processWaitingList();
+           WaitingListManager waitingListManager=new WaitingListManager();
+           waitingListManager.processWaitingList();
         }
         else{
             System.out.println("Ticket with pnr "+pnr+" not found");
